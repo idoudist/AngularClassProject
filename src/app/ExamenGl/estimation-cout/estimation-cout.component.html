@@ -1,0 +1,24 @@
+<br><label>position souhaiter</label>
+<br>
+<form (ngSubmit)="estimer()">
+<select required name ="pos" >
+    <option value="haut" >haut</option>
+    <option value="bas" >bas</option>
+    <option value="vide">vide</option>
+</select>
+<div [hidden]="nbcha.valid" class="alert alert-danger">
+    nombre de caractere is required
+</div>
+<br><label>nombre de caractere</label>
+<input type="number" [(ngModel)]="nbchar" name="nbchar" #nbcha="ngModel" required>
+<div [hidden]="nbcha.valid" class="alert alert-danger">
+    nombre de caractere is required
+</div>
+<div [hidden]="nbcha.value < 60" class="alert alert-danger">
+    nombre de caractere doit etre inferieur a 60
+</div>
+<br>
+<input type="submit" value="estimer">
+</form>
+
+<p>l'estimation est {{estimation}}</p>

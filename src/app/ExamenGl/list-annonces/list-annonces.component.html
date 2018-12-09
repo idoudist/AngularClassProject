@@ -1,0 +1,9 @@
+<fieldset *ngFor="let annonce of listAnnonce" class="scheduler-border" 
+[style.background-color]="annonce.etat=='confirme'? 'green' : 'orange'"
+[hidden]="annonce.etat=='annuler'">
+    <legend class="scheduler-border">event n° {{annonce.position}}</legend>
+    <b>Lieux:</b>{{annonce.titre}}<br>
+    <b>Categorie:</b>{{annonce.etat}}<br>
+    <b>Description:</b>{{annonce.description}}<br>
+  </fieldset>
+  

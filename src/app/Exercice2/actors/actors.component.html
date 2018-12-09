@@ -1,0 +1,17 @@
+<h1>Actors List</h1>
+<div *ngFor="let actor of listActors">
+<app-actor [actor] = "actor"  (deleteEvent)="delete2($event)" (favEvent)="fav2($event)"></app-actor>
+</div>
+
+<h1>favorit Actor</h1>
+<button (click)="toggel()">{{show ? 'masquer favoris' : 'afficher favoris'}}</button>
+<div *ngIf="show">
+<div *ngFor="let actor of listFav">
+    <ul>
+        <li>
+            {{actor.firstName}}
+            {{actor.lastName}}
+        </li>
+    </ul>
+</div>
+</div>

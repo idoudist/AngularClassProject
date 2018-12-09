@@ -1,0 +1,49 @@
+<h1>Ajout User</h1>
+
+<form #userForm="ngForm" (ngSubmit)="addUser()">
+  <div class="form-group">
+  <ul>
+    <li>
+      <span>Name</span>
+      <br/>
+      <input type="text" class="form-control" name="Name"  [(ngModel)]="user.Name" #Name="ngModel" required>
+      <div [hidden]="Name.valid" class="alert alert-danger">
+          Name is required
+      </div>
+    </li>
+    <li>
+      <span>Email</span>
+      <br/>
+      <input type="text" class="form-control" name="Email"  [(ngModel)]="user.Email" #Email="ngModel" required>
+      <div [hidden]="Email.valid" class="alert alert-danger">
+          email is required
+      </div>
+    </li>
+    <li>
+      <span>Cin</span>
+      <br/>
+      <input type="number" class="form-control" name="Cin"  [(ngModel)]="user.Cin" #Cin="ngModel" >
+    </li>
+  </ul>
+  <input type="submit" value="Ajout" class="btn-success" [disabled]="!userForm.valid">
+  </div>
+</form>
+<div>
+  <label>name = {{user.Name}}</label><br>
+  <label>email = {{user.Email}}</label><br>
+  <label>cin = {{user.Cin}}</label><br>
+</div>
+
+<h1>List User</h1>
+<ul>
+  <li *ngFor="let item of listUser">
+    {{item.Name}}<br>
+    {{item.Email}}<br>
+    {{item.Cin}}
+  </li>
+</ul>
+<div>
+    <h2>consommation service</h2><br>
+    {{userName}}
+  
+  </div>

@@ -1,0 +1,7 @@
+<div>
+  <label>Entrer un nombre :</label><br>
+  <input type="number" #nbr><br>
+  <button (click)="callSquare(nbr.value)" >calculer square</button>
+  <button (click)="callCircle(nbr.value)">calculer circle</button>
+  <label>result : {{result}}</label>
+</div>

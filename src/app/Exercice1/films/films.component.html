@@ -1,0 +1,103 @@
+<h1>
+  List Films (ng for)
+</h1>
+<table border="1">
+  <tr>
+    <td>Nom</td><td>Duree</td><td>Categorie</td>
+  </tr>
+<tr *ngFor="let film of listFilms">
+  <td>{{film.nom}}</td><td>{{film.duree}}</td><td>{{film.categorie}}</td>
+</tr>
+</table>
+
+<h1>
+    List Films Action (ng if)
+  </h1>
+  <table border="1">
+      <tr>
+          <td>Nom</td><td>Duree</td><td>Categorie</td>
+        </tr>
+  
+   <tr *ngFor="let film of listFilms" >
+    <td *ngIf="film.categorie=='action'">{{film.nom}}</td>
+    <td *ngIf="film.categorie=='action'">{{film.duree}}</td>
+    <td *ngIf="film.categorie=='action'">{{film.categorie}}</td>
+  </tr>
+  
+  </table>
+
+  <h1>
+      List Films Others (ng if)
+    </h1>
+    <table border="1">
+      <tr>
+        <td>Nom</td><td>Duree</td><td>Categorie</td>
+      </tr>
+    <tr *ngFor="let film of listFilms">
+      <td *ngIf="film.categorie!='action'">{{film.nom}}</td>
+      <td *ngIf="film.categorie!='action'">{{film.duree}}</td>
+      <td *ngIf="film.categorie!='action'">{{film.categorie}}</td>
+    </tr>
+    </table>
+
+    <h1>
+        List Films Non Comic (hidden)
+      </h1>
+      <table border="1">
+        <tr>
+          <td>Nom</td><td>Duree</td><td>Categorie</td>
+        </tr>
+      <tr *ngFor="let film of listFilms" [hidden]="film.categorie=='comic'">
+        <td >{{film.nom}}</td>
+        <td>{{film.duree}}</td>
+        <td>{{film.categorie}}</td>
+      </tr>
+      </table>
+
+      <h1>
+          List Films (style binding)
+        </h1>
+        <table border="1">
+          <tr>
+            <td>Nom</td><td>Duree</td><td>Categorie</td>
+          </tr>
+        <tr *ngFor="let film of listFilms" [style.background-color]="film.duree=='2 heures'? 'blue' : 'red'"
+                                           [style.font-size.px]="film.duree=='2 heures'? '24' : 'default'"
+                                           [style.font-family]="film.duree=='2 heures'? 'Fantasy' : 'Courier'"
+                                           >
+          <td>{{film.nom}}</td>
+          <td>{{film.duree}}</td>
+          <td>{{film.categorie}}</td>
+        </tr>
+        </table>
+
+
+        <h1>
+            List Films (ng style)
+          </h1>
+          <table border="1">
+            <tr>
+              <td>Nom</td><td>Duree</td><td>Categorie</td>
+            </tr>
+          <tr *ngFor="let film of listFilms" [ngClass]="film.duree ==='2 heures'? 'st1' : 'st2'"
+                                             [ngStyle]="{'font-family' : film.duree ==='2 heures'? 'Fantasy' : 'Courier'}"
+                                             [ngStyle]="{'font-size.px' : film.duree ==='2 heures'? '24' :'default'}"
+                                             >
+            <td >{{film.nom}}</td>
+            <td>{{film.duree}}</td>
+            <td>{{film.categorie}}</td>
+          </tr>
+          </table>
+
+          <h1>
+              button (Bootstrap)
+        </h1>
+        <div>
+          <button (click) ="calculer()" [ngClass]="nbfilm > 1 ? 'btn-success' : 'btn'"> calculer</button>
+          <br>
+          <span>Le nombre de film action est : {{raction}}</span>
+          <br>
+          <span>Le nombre de film non action est :{{rnaction}}</span>
+        </div>
+
+        
